@@ -1,14 +1,14 @@
-<div class="video-js-box">
+<!-- <div class="video-js-box"> -->
 	<video
 	  id="<%=options[:id]%>"
-		class="<%= options[:classes] %> video-js vjs-default-skin"
+		class="<%= options[:classes] %> video-js vjs-default-skin vjs-big-play-centered"
 		<%= "controls" if !!options[:controls] %>
 		preload="<%=options[:preload]%>"
 		width="<%=options[:width]%>"
 		height="<%=options[:height]%>"
 		poster="<%= options[:poster] %>"
-		data-setup="<%= options[:setup] %>"
-	>
+		data-setup="<%= options[:setup] %>">
+
 		<% if options[:sources] %>
 			<%- options[:sources].each do |type, source| %>
 				<source src="<%= source %>" type='video/<%= type %>' />
@@ -24,4 +24,4 @@
 
 		<p class="vjs-no-js"><%= yield %></p>
   </video>
-</div>
+<!-- </div> -->

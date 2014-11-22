@@ -7,7 +7,7 @@ Works for Rails 4
 Add to your Gemfile
 
 ```ruby
-gem 'videojs_rails'
+gem 'videojs_rails', github: 'richardun/videojs_rails'
 ```
 
 And run bundle to install the library.

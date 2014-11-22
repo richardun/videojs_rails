@@ -38,16 +38,36 @@ And to production.rb add this line
 config.assets.precompile += %w( video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff )
 ```
 
+Assign the video-js.swf to the special flash variable in your views/layouts/application.html.erb
+```erb
+<head>
+  ...
+  <script>
+    videojs.options.flash.swf = '<%= asset_path('video-js.swf') %>';
+  </script>
+</head>
+```
+
 ## Usage
 
 ```erb
-<%= videojs_rails sources: { mp4: "http://domain.com/path/to/video.mp4", webm: "http://another.com/path/to/video.webm", setup: "{}", controls: false }, width:"400" %>
+<%= videojs_rails id: 'example-video', sources: { "video/mp4" => "http://m4stv.inqb8r.tv/studentTV/studentTV.stream_360p/playlist.m3u8" }, setup: '{"techOrder":["flash"]}', poster: 'http://video-js.zencoder.com/oceans-clip.png', controls: true, width: '640', height: '264' %>
+```
+
+You can add a Hash to the setup attribute instead:
+```erb
+<%= videojs_rails id: 'example-video', sources: { "video/mp4" =>  "http://m4stv.inqb8r.tv/studentTV/studentTV.stream_360p/playlist.m3u8" }, setup: {:techOrder=>["flash"]}, poster: 'http://video-js.zencoder.com/oceans-clip.png', controls: true, width: '640', height: '264' %>
+```
+
+### LIVE Video example
+```erb
+<%= videojs_rails id: 'example-video', sources: { "video/mp4" => "http://m4stv.inqb8r.tv/studentTV/studentTV.stream_360p/playlist.m3u8" }, setup: "{'techOrder': ['flash']}", poster: 'http://video-js.zencoder.com/oceans-clip.png', controls: true, width: '640', height: '264' %>
 ```
 
 If you want add a callback if user don't support JavaScript use block with displayed html code:
 
 ```erb
-<%= videojs_rails sources: { mp4: "http://domain.com/path/to/video.mp4", webm: "http://another.com/path/to/video.webm" }, width:"400" do %>
+<%= videojs_rails sources: { "video/mp4" => "http://domain.com/path/to/video.mp4", "video/webm" => "http://another.com/path/to/video.webm" }, width:"400" do %>
 	Please enable <b>JavaScript</b> to see this content.
 <%- end %>
 ```

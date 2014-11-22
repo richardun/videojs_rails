@@ -1,5 +1,7 @@
 # VideoJS for Asset Pipeline
 
+Works for Rails 4
+
 ## Installation
 
 Add to your Gemfile

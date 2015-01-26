@@ -74,6 +74,11 @@ If you want add a callback if user don't support JavaScript use block with displ
 <%- end %>
 ```
 
+### Youtube Video example
+```erb
+<%= videojs_rails id: 'example-video', sources: { "video/youtube" => "http://youtu.be/Pzmw6EGMzDc" }, setup: "{'techOrder': ['youtube']}", controls: true, width: '854', height: '510' %>
+```
+
 ## Captions
 
 This is currently experimental function.

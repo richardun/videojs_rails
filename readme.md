@@ -21,6 +21,7 @@ Add the resources to your application.js file
 ```coffeescript
 # app/assets/javascripts/application.js
 //= require video
+//= require vjs.youtube
 ```
 
 And that resource to application.css file
